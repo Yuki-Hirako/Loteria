@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <conio.h>
 #define l 25
-//erro na linha 178, e 251 dois paramêtros pra um %d só.
 
 bool VerificaNulos (int *);
 
@@ -57,13 +56,13 @@ int main (){
 		acertos[i]==0;
 	}*/
 	
-	//Recebe o valor do prêmio a ser dividido entre os acertadores
-	printf ("Valor do prêmio: R$");
+	//Recebe o valor do prÃªmio a ser dividido entre os acertadores
+	printf ("Valor do prÃªmio: R$");
 	scanf ("%f", &premio);
 	
 	//Conta quantos acertos teve em cada jogo e armazena no vetor "acertos[]"
-	//Cada linha da matriz "Loteria[][]" representa um jogo diferente, então para o vetor "acertos[]",
-	//cada posição armazena quantos pontos foram obtidos por jogos
+	//Cada linha da matriz "Loteria[][]" representa um jogo diferente, entÃ£o para o vetor "acertos[]",
+	//cada posiÃ§Ã£o armazena quantos pontos foram obtidos por jogos
 	//------ LOTERIA -----
 	//EX: C [0] [1] [2] [3] [4] [5]
 	//L [0] 03  09  12  35  43  53
@@ -115,11 +114,11 @@ int main (){
 		nJogados [i]=0;
 	}
 	
-	//Conta quantas vezes cada número da loteria se repete e armazena no vetor de "nJogados[60]"
-	//Cada posição do vetor representa um número da loteria, onde: 
-	//posição [0] armazena quantas vezes o número 1 foi jogado, 
-	//posição [1] armazena quantas vezes o número 2 foi jogado,
-	//e assim por diante até a posição [59]. 
+	//Conta quantas vezes cada nÃºmero da loteria se repete e armazena no vetor de "nJogados[60]"
+	//Cada posiÃ§Ã£o do vetor representa um nÃºmero da loteria, onde: 
+	//posiÃ§Ã£o [0] armazena quantas vezes o nÃºmero 1 foi jogado, 
+	//posiÃ§Ã£o [1] armazena quantas vezes o nÃºmero 2 foi jogado,
+	//e assim por diante atÃ© a posiÃ§Ã£o [59]. 
 	for (j=0;j<l;j++){
 		for (x=0,i=0;i<6;x++){
 			if (loteria[j][i]==x+1){
@@ -130,10 +129,10 @@ int main (){
 		}
 	}
 	
-	//Mostra quantas vezes os números de 01 a 60 se repetiram (TABULADO)
-	printf ("\n\nQuantas vezes os números de 01 a 60 se repetem:\n");
+	//Mostra quantas vezes os nÃºmeros de 01 a 60 se repetiram (TABULADO)
+	printf ("\n\nQuantas vezes os nÃºmeros de 01 a 60 se repetem:\n");
 	for (j=0;j<6;j++){
-		printf (" | Número | Repete | ");
+		printf (" | NÃºmero | Repete | ");
 	}
 	printf ("\n");
 	i=1;
@@ -147,7 +146,7 @@ int main (){
 		}
 	}
 	
-	//Verifica qual o número mais jogado
+	//Verifica qual o nÃºmero mais jogado
 	aux2=nJogados[0];
 	for (i=0;i<60;i++){
 		if (nJogados[i]>aux2){
@@ -155,7 +154,7 @@ int main (){
 			mais=i+1;
 		}
 	}
-	//Verifica qual o número menos jogado
+	//Verifica qual o nÃºmero menos jogado
 	aux2=nJogados[0];
 	for (i=0;i<60;i++){
 		if (nJogados[i]<aux2){
@@ -164,75 +163,75 @@ int main (){
 		}
 	}
 	
-	//Mostra os números mais e menos jogados
-	printf ("\n\nO número mais jogado é o %d, e o menos jogado é o %d", mais, menos);
+	//Mostra os nÃºmeros mais e menos jogados
+	printf ("\n\nO nÃºmero mais jogado Ã© o %d, e o menos jogado Ã© o %d", mais, menos);
 	
 	
-	//Chama a função "VerificaNulos" para verificar se há algum número (entre 01 e 60) que não apareceu em nenhum jogo 
+	//Chama a funÃ§Ã£o "VerificaNulos" para verificar se hÃ¡ algum nÃºmero (entre 01 e 60) que nÃ£o apareceu em nenhum jogo 
 	nulos = VerificaNulos(nJogados);
-	//Se a função retornar "false" quer dizer que HÁ NULOS
+	//Se a funÃ§Ã£o retornar "false" quer dizer que HÃ NULOS
 	if (!nulos){
-		printf ("\n\nO(s) número(s) ");
+		printf ("\n\nO(s) nÃºmero(s) ");
 		for (i=0;i<60;i++){
 			if (nJogados[i]==0){
 				printf ("%d, ", i+1);
 			}
 		}
-		printf ("não aparece(m) em nenhum jogo!\n");
+		printf ("nÃ£o aparece(m) em nenhum jogo!\n");
 	}else {
-		printf ("\n\nTodos os números de 01 à 60 foram jogados!\n");
+		printf ("\n\nTodos os nÃºmeros de 01 Ã  60 foram jogados!\n");
 	}
 	
-	//Calcula e mostra o valor do prêmio que cada acertador irá receber
+	//Calcula e mostra o valor do prÃªmio que cada acertador irÃ¡ receber
 	if (a6!=0){
 		if (a6>1){
 			premio6=(premio*0.85)/a6;
-			printf ("\n%d jogadores receberão R$%.2f cada (6 acertos)", a6, premio6);
+			printf ("\n%d jogadores receberÃ£o R$%.2f cada (6 acertos)", a6, premio6);
 		}else {
 			premio6=(premio*0.85);
-			printf ("\n%d jogador receberá R$%.2f (6 acertos)", a6, premio6);
+			printf ("\n%d jogador receberÃ¡ R$%.2f (6 acertos)", a6, premio6);
 		}
 	}else{
 		premio6=(premio*0.85);
-		printf ("\nNenhum jogo com 6 acertos! Prêmio de R$%.2f acumulado!!!", premio6);
+		printf ("\nNenhum jogo com 6 acertos! PrÃªmio de R$%.2f acumulado!!!", premio6);
 	}
 	
 	if (a5!=0){
 		if (a5>1){
 			premio5=(premio*0.10)/a5;
-			printf ("\n%d jogadores receberão R$%.2f cada (5 acertos)", a5, premio5);
+			printf ("\n%d jogadores receberÃ£o R$%.2f cada (5 acertos)", a5, premio5);
 		}else {
 			premio5=(premio*0.10);
-			printf ("\n%d jogador receberá R$%.2f (5 acertos)", a5, premio5);
+			printf ("\n%d jogador receberÃ¡ R$%.2f (5 acertos)", a5, premio5);
 		}
 	}else{
 		premio5=(premio*0.10);
-		printf ("\nNenhum jogo com 5 acertos! Prêmio de R$%.2f acumulado!!!", premio5);
+		printf ("\nNenhum jogo com 5 acertos! PrÃªmio de R$%.2f acumulado!!!", premio5);
 	}
 			
 	if (a4!=0){
 		if (a4>1){
 			premio4=(premio*0.05)/a4;
-			printf ("\n%d jogadores receberão R$%.2f cada (4 acertos)\n\n\n", a4, premio4);
+			printf ("\n%d jogadores receberÃ£o R$%.2f cada (4 acertos)\n\n\n", a4, premio4);
 		}else {
 			premio4=(premio*0.05);
-			printf ("\n%d jogador receberá R$%.2f (4 acertos)\n\n\n", a4, premio4);
+			printf ("\n%d jogador receberÃ¡ R$%.2f (4 acertos)\n\n\n", a4, premio4);
 		}
 	}else{
 		premio4=(premio*0.05);
-		printf ("\nNenhum jogo com 4 acertos! Prêmio de R$%.2f acumulado!!!\n\n\n", premio4);
+		printf ("\nNenhum jogo com 4 acertos! PrÃªmio de R$%.2f acumulado!!!\n\n\n", premio4);
 	}
 	
 	system("pause");
 					
-	//Armazena as informações no arquivo SAIDA.txt
+	//Armazena as informaÃ§Ãµes no arquivo SAIDA.txt
 	final = fopen ("SAIDA.txt", "a+");
-	fprintf (final, "Acertaram 6 números: %d", a6);
-	fprintf (final, "\nAcertaram 5 números: %d", a5);
-	fprintf (final, "\nAcertaram 4 números: %d", a4);
-	fprintf (final, "\n\nQuantas vezes os números de 01 a 60 se repetem:\n");
+	fprintf (final, "Acertaram 6 nÃºmeros: %d", a6);
+	fprintf (final, "\nAcertaram 5 nÃºmeros: %d", a5);
+	fprintf (final, "\nAcertaram 4 nÃºmeros: %d", a4);
+	fprintf (final, "\n\nQuantas vezes os nÃºmeros de 01 a 60 se repetem:\n");
 	for (j=0;j<6;j++){
-		fprintf (final, " | Número | Repete | ");
+		fprintf (final, " | NÃºmero | Repete | ");
 	}
 	fprintf (final, "\n");
 	i=1;
@@ -245,56 +244,56 @@ int main (){
 			i=1;
 		}
 	}
-	fprintf (final, "\n\nO número mais jogado é o %d, e o menos jogado é o %d", mais, menos);
+	fprintf (final, "\n\nO nÃºmero mais jogado Ã© o %d, e o menos jogado Ã© o %d", mais, menos);
 	if (!nulos){
-		fprintf (final, "\n\nO(s) número(s) ");
+		fprintf (final, "\n\nO(s) nÃºmero(s) ");
 		for (i=0;i<60;i++){
 			if (nJogados[i]==0){
 				fprintf (final, "%d, ", i+1);
 			}
 		}
-		fprintf (final, "não aparece(m) em nenhum jogo!");
+		fprintf (final, "nÃ£o aparece(m) em nenhum jogo!");
 	}else {
-		fprintf (final, "\n\nTodos os números de 01 à 60 foram jogados!");
+		fprintf (final, "\n\nTodos os nÃºmeros de 01 Ã  60 foram jogados!");
 	}	
 	
 	if (a6!=0){
 		if (a6>1){
 			premio6=(premio*0.85)/a6;
-			fprintf (final, "\n%d jogadores receberão R$%.2f cada (6 acertos)", a6, premio6);
+			fprintf (final, "\n%d jogadores receberÃ£o R$%.2f cada (6 acertos)", a6, premio6);
 		}else {
 			premio6=(premio*0.85);
-			fprintf (final, "\n%d jogador receberá R$%.2f (6 acertos)", a6, premio6);
+			fprintf (final, "\n%d jogador receberÃ¡ R$%.2f (6 acertos)", a6, premio6);
 		}
 	}else{
 		premio6=(premio*0.85);
-		fprintf (final, "\nNenhum jogo com 6 acertos! Prêmio de R$%.2f acumulado!!!", premio6);
+		fprintf (final, "\nNenhum jogo com 6 acertos! PrÃªmio de R$%.2f acumulado!!!", premio6);
 	}
 	
 	if (a5!=0){
 		if (a5>1){
 			premio5=(premio*0.10)/a5;
-			fprintf (final, "\n%d jogadores receberão R$%.2f cada (5 acertos)", a5, premio5);
+			fprintf (final, "\n%d jogadores receberÃ£o R$%.2f cada (5 acertos)", a5, premio5);
 		}else {
 			premio5=(premio*0.10);
-			fprintf (final, "\n%d jogador receberá R$%.2f (5 acertos)", a5, premio5);
+			fprintf (final, "\n%d jogador receberÃ¡ R$%.2f (5 acertos)", a5, premio5);
 		}
 	}else{
 		premio5=(premio*0.10);
-		fprintf (final, "\nNenhum jogo com 5 acertos! Prêmio de R$%.2f acumulado!!!", premio5);
+		fprintf (final, "\nNenhum jogo com 5 acertos! PrÃªmio de R$%.2f acumulado!!!", premio5);
 	}
 			
 	if (a4!=0){
 		if (a4>1){
 			premio4=(premio*0.05)/a4;
-			fprintf (final, "\n%d jogadores receberão R$%.2f cada (4 acertos)", a4, premio4);
+			fprintf (final, "\n%d jogadores receberÃ£o R$%.2f cada (4 acertos)", a4, premio4);
 		}else {
 			premio4=(premio*0.05);
-			fprintf (final, "\n%d jogador receberá R$%.2f (4 acertos)", a4, premio4);
+			fprintf (final, "\n%d jogador receberÃ¡ R$%.2f (4 acertos)", a4, premio4);
 		}
 	}else{
 		premio4=(premio*0.05);
-		fprintf (final, "\nNenhum jogo com 4 acertos! Prêmio de R$%.2f acumulado!!!", premio4);
+		fprintf (final, "\nNenhum jogo com 4 acertos! PrÃªmio de R$%.2f acumulado!!!", premio4);
 	}
 	fclose(final);
 		
